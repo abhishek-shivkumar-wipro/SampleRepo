@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.EnumSet;
 import java.util.List;
@@ -13,6 +14,11 @@ import com.google.code.facebookapi.ProfileField;
 import com.google.code.facebookapi.schema.FriendsGetResponse;
 import com.google.code.facebookapi.schema.User;
 import com.google.code.facebookapi.schema.UsersGetInfoResponse;
+
+import jxl.*;
+import jxl.write.*;
+import jxl.write.Number;
+import jxl.write.biff.RowsExceededException;
 
 
 public class FacebookClient {
@@ -58,11 +64,31 @@ public static void main(String args[]) {
             
             List<User> users = userResponse.getUser();
             System.out.println("The Names of the user's friends are:");
-            for (User user : users) {
-            	System.out.println(user.getName());
-            }
+            
+            WritableWorkbook workbook = Workbook.createWorkbook(new File("output.xls")); 
+            WritableSheet sheet = workbook.createSheet("First Sheet", 0); 
+            try {
+                int cnt = 0; 
+                for (User user : users) {
+                	String name = user.getName();
+                	System.out.println(name);
+                	Label label = new Label(0, cnt, name);
+                	sheet.addCell(label);
+                	cnt++;
+                }
+                workbook.write();
+                workbook.close();
+			} catch (RowsExceededException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (WriteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            
+
             //
-            Long userId = client.users_getLoggedInUser(); 
+//            Long userId = client.users_getLoggedInUser(); 
             
             
             		

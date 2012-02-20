@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="C:/Users/ab829265/Desktop/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/json-20080701.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ab829265/Desktop/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/runtime-0.4.1.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ab829265/Desktop/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/stax-api-1.0-2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ab829265/Desktop/jexcelapi/jxl.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
